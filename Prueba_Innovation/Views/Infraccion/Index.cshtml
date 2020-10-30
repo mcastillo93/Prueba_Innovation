@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Prueba_Innovation.ViewModels.InfraccionViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Historial de Infracciones</h4>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puntos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConductorNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula_Vehiculo)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntos)
+            </td>
+            <td>
+                @Convert.ToDateTime(item.Fecha).ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConductorNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula_Vehiculo)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

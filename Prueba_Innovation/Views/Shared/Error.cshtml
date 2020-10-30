@@ -1,0 +1,24 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+
+
+<p>
+    <h3>@Model.Error</h3> 
+</p>
+<br />
+<p>
+    <strong>@Model.Message</strong>
+</p>
+<br />
+<button  onclick="goBack()" class="btn btn-secondary">Regresar</button>
+
+<script>
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Prueba_Innovation.ViewModels.VehiculoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Listado de Vehículos</h4>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConductorNombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConductorNombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Matricula">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Matricula">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.Matricula">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
